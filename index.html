@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deside - Marmot Battle</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero-main">
+          <p class="eyebrow">Marmot Decision Arena</p>
+          <h1>マーモット決闘会議</h1>
+          <p class="hero-copy">
+            迷ったらマーモットに決めてもらいましょう。
+          </p>
+        </div>
+        <div class="hero-badges">
+          <span>2人戦 / 3人戦</span>
+          <span>勝者が今日の答え</span>
+        </div>
+      </section>
+
+      <section class="control-panel">
+        <div class="mode-row" role="radiogroup" aria-label="対戦人数">
+          <button id="modeTwoButton" class="mode-button is-active" type="button">
+            2人戦
+          </button>
+          <button id="modeThreeButton" class="mode-button" type="button">
+            3人戦
+          </button>
+        </div>
+        <div id="choicesGrid" class="choices-grid mode-two">
+          <label class="input-card">
+            <span>左の候補</span>
+            <input id="choiceA" type="text" maxlength="24" value="ラーメン" />
+          </label>
+          <label class="input-card">
+            <span>右の候補</span>
+            <input id="choiceB" type="text" maxlength="24" value="カレー" />
+          </label>
+          <label id="choiceCWrap" class="input-card choice-c-wrap is-hidden">
+            <span>中央の候補</span>
+            <input id="choiceC" type="text" maxlength="24" value="オムライス" />
+          </label>
+        </div>
+        <div class="button-row">
+          <button id="battleButton" class="battle-button">対決スタート</button>
+          <button id="swapButton" class="ghost-button" type="button">入れ替え</button>
+        </div>
+      </section>
+
+      <section class="arena-panel">
+        <div class="arena-hud">
+          <div class="status-wrap">
+            <p class="status-label">実況</p>
+            <p id="statusText" class="status-text">候補を決めて、対決スタート！</p>
+          </div>
+          <div class="sound-chip">ぴこぴこSE</div>
+        </div>
+
+        <div id="arena" class="arena state-idle">
+          <div class="sky-layer" aria-hidden="true">
+            <span class="cloud cloud-one"></span>
+            <span class="cloud cloud-two"></span>
+            <span class="cloud cloud-three"></span>
+          </div>
+          <div class="arena-sparkles" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="dust dust-left"></div>
+          <div class="dust dust-right"></div>
+          <div class="dust dust-center"></div>
+
+          <article id="fighterA" class="fighter fighter-left">
+            <div id="tagA" class="choice-tag">ラーメン</div>
+            <div class="marmot-card">
+              <img src="./Images/Mamo_T-pose.jpg" alt="左のマーモット" />
+            </div>
+          </article>
+
+          <div id="impact" class="impact-burst" aria-hidden="true">
+            <span>もふっ</span>
+          </div>
+
+          <article id="fighterC" class="fighter fighter-center is-hidden">
+            <div id="tagC" class="choice-tag">オムライス</div>
+            <div class="marmot-card">
+              <img src="./Images/Mamo_T-pose.jpg" alt="中央のマーモット" />
+            </div>
+          </article>
+
+          <article id="fighterB" class="fighter fighter-right">
+            <div id="tagB" class="choice-tag">カレー</div>
+            <div class="marmot-card">
+              <img src="./Images/Mamo_T-pose.jpg" alt="右のマーモット" />
+            </div>
+          </article>
+        </div>
+
+        <div class="result-panel">
+          <p class="result-label">勝者</p>
+          <p id="winnerText" class="winner-text">まだ決まっていません</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
