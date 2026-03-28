@@ -13,6 +13,8 @@ const modeTwoButton = document.getElementById("modeTwoButton");
 const modeThreeButton = document.getElementById("modeThreeButton");
 const statusText = document.getElementById("statusText");
 const winnerText = document.getElementById("winnerText");
+const skyWinnerText = document.getElementById("skyWinnerText");
+const winnerBurst = document.querySelector(".winner-burst");
 const arena = document.getElementById("arena");
 
 const timing = {
@@ -44,6 +46,9 @@ function syncLabels() {
 function resetArenaClasses() {
   arena.className = "arena state-idle";
   arena.classList.add(battleMode === 3 ? "mode-three" : "mode-two");
+  skyWinnerText.textContent = "";
+  skyWinnerText.classList.remove("is-visible");
+  winnerBurst.classList.remove("is-visible");
 }
 
 function setControlsDisabled(disabled) {
@@ -215,6 +220,13 @@ async function startBattle() {
   winnerText.textContent = `今日は「${winnerChoice}」で決まり！`;
   statusText.textContent = `勝者は ${winnerChoice}。本日の決定です。`;
   arena.classList.add("decision-final");
+  skyWinnerText.textContent = winnerChoice;
+  skyWinnerText.classList.remove("is-visible");
+  winnerBurst.classList.remove("is-visible");
+  void skyWinnerText.offsetWidth;
+  void winnerBurst.offsetWidth;
+  skyWinnerText.classList.add("is-visible");
+  winnerBurst.classList.add("is-visible");
   playDecisionSound();
 
   battleInProgress = false;
