@@ -299,11 +299,20 @@ button:active {
 }
 
 .arena {
+  --shift-two-approach: clamp(98px, 20.5cqw, 172px);
+  --shift-two-struggle: clamp(114px, 22.5cqw, 188px);
+  --shift-two-lose: clamp(60px, 10.5cqw, 92px);
+  --shift-two-win: clamp(96px, 17.5cqw, 150px);
+  --shift-three-approach: clamp(70px, 14.5cqw, 134px);
+  --shift-three-struggle: clamp(82px, 16cqw, 148px);
+  --shift-three-side-lose: clamp(48px, 8.8cqw, 74px);
+  --shift-three-side-win: clamp(80px, 12cqw, 116px);
   position: relative;
   overflow: hidden;
   min-height: 300px;
   height: 100%;
   border-radius: 22px;
+  container-type: inline-size;
   background:
     radial-gradient(circle at center 18%, rgba(255, 255, 255, 0.5), transparent 24%),
     linear-gradient(180deg, #9ed7ff 0%, #dff2ff 46%, #fff8f5 46%, var(--arena-ground) 58%, #ebcf92 100%);
@@ -433,7 +442,7 @@ button:active {
   --rot: 0deg;
   position: absolute;
   bottom: 8px;
-  width: min(188px, 24vw);
+  width: clamp(150px, 24cqw, 188px);
   display: grid;
   justify-items: center;
   transform: translateX(var(--x)) rotate(var(--rot));
@@ -455,8 +464,8 @@ button:active {
 
 .fighter-center {
   left: 50%;
-  bottom: 64px;
-  width: min(164px, 20vw);
+  bottom: clamp(64px, 15cqh, 92px);
+  width: clamp(122px, 20cqw, 164px);
   transform: translateX(-50%) translateX(var(--x)) rotate(var(--rot));
 }
 
@@ -518,22 +527,22 @@ button:active {
 }
 
 .arena.state-approach .fighter-left {
-  --x: 154px;
+  --x: var(--shift-two-approach);
   --rot: -5deg;
 }
 
 .arena.state-approach .fighter-right {
-  --x: -154px;
+  --x: calc(var(--shift-two-approach) * -1);
   --rot: 5deg;
 }
 
 .arena.state-struggle .fighter-left {
-  --x: 166px;
+  --x: var(--shift-two-struggle);
   --rot: -8deg;
 }
 
 .arena.state-struggle .fighter-right {
-  --x: -166px;
+  --x: calc(var(--shift-two-struggle) * -1);
   --rot: 8deg;
 }
 
@@ -546,11 +555,11 @@ button:active {
 }
 
 .arena.mode-three.state-approach .fighter-left {
-  --x: 118px;
+  --x: var(--shift-three-approach);
 }
 
 .arena.mode-three.state-approach .fighter-right {
-  --x: -118px;
+  --x: calc(var(--shift-three-approach) * -1);
 }
 
 .arena.mode-three.state-approach .fighter-center {
@@ -559,12 +568,12 @@ button:active {
 }
 
 .arena.mode-three.state-struggle .fighter-left {
-  --x: 128px;
+  --x: var(--shift-three-struggle);
   --rot: -10deg;
 }
 
 .arena.mode-three.state-struggle .fighter-right {
-  --x: -128px;
+  --x: calc(var(--shift-three-struggle) * -1);
   --rot: 10deg;
 }
 
@@ -574,27 +583,27 @@ button:active {
 }
 
 .arena.winner-left .fighter-left {
-  --x: 150px;
+  --x: var(--shift-two-win);
   --rot: -9deg;
   animation: victory-hop 700ms ease-in-out 2;
   z-index: 3;
 }
 
 .arena.winner-left .fighter-right {
-  --x: -92px;
+  --x: calc(var(--shift-two-lose) * -1);
   --rot: 84deg;
   opacity: 0.8;
 }
 
 .arena.winner-right .fighter-right {
-  --x: -150px;
+  --x: calc(var(--shift-two-win) * -1);
   --rot: 9deg;
   animation: victory-hop 700ms ease-in-out 2;
   z-index: 3;
 }
 
 .arena.winner-right .fighter-left {
-  --x: 92px;
+  --x: var(--shift-two-lose);
   --rot: -84deg;
   opacity: 0.8;
 }
@@ -607,19 +616,19 @@ button:active {
 }
 
 .arena.winner-center .fighter-left {
-  --x: 74px;
+  --x: var(--shift-three-side-lose);
   --rot: -84deg;
   opacity: 0.78;
 }
 
 .arena.winner-center .fighter-right {
-  --x: -74px;
+  --x: calc(var(--shift-three-side-lose) * -1);
   --rot: 84deg;
   opacity: 0.78;
 }
 
 .arena.mode-three.winner-left .fighter-left {
-  --x: 116px;
+  --x: var(--shift-three-side-win);
 }
 
 .arena.mode-three.winner-left .fighter-center {
@@ -629,7 +638,7 @@ button:active {
 }
 
 .arena.mode-three.winner-right .fighter-right {
-  --x: -116px;
+  --x: calc(var(--shift-three-side-win) * -1);
 }
 
 .arena.mode-three.winner-right .fighter-center {
@@ -924,48 +933,12 @@ button:active {
     justify-content: flex-start;
   }
 
-  .fighter {
-    width: min(190px, 28vw);
-    bottom: 18px;
-  }
-
-  .fighter-center {
-    width: min(160px, 22vw);
-    bottom: 92px;
-  }
-
   .fighter-left {
     left: 16px;
   }
 
   .fighter-right {
     right: 16px;
-  }
-
-  .arena.state-approach .fighter-left,
-  .arena.state-struggle .fighter-left,
-  .arena.winner-right .fighter-left {
-    --x: 126px;
-  }
-
-  .arena.state-approach .fighter-right,
-  .arena.state-struggle .fighter-right,
-  .arena.winner-left .fighter-right {
-    --x: -126px;
-  }
-
-  .arena.mode-three.state-approach .fighter-left,
-  .arena.mode-three.state-struggle .fighter-left,
-  .arena.mode-three.winner-right .fighter-left,
-  .arena.mode-three.winner-center .fighter-left {
-    --x: 92px;
-  }
-
-  .arena.mode-three.state-approach .fighter-right,
-  .arena.mode-three.state-struggle .fighter-right,
-  .arena.mode-three.winner-left .fighter-right,
-  .arena.mode-three.winner-center .fighter-right {
-    --x: -92px;
   }
 }
 
@@ -1044,12 +1017,10 @@ button:active {
   }
 
   .fighter {
-    width: min(150px, 39vw);
     bottom: 20px;
   }
 
   .fighter-center {
-    width: min(122px, 31vw);
     bottom: 130px;
   }
 
@@ -1059,32 +1030,6 @@ button:active {
 
   .fighter-right {
     right: 8px;
-  }
-
-  .arena.state-approach .fighter-left,
-  .arena.state-struggle .fighter-left,
-  .arena.winner-right .fighter-left {
-    --x: 84px;
-  }
-
-  .arena.state-approach .fighter-right,
-  .arena.state-struggle .fighter-right,
-  .arena.winner-left .fighter-right {
-    --x: -84px;
-  }
-
-  .arena.mode-three.state-approach .fighter-left,
-  .arena.mode-three.state-struggle .fighter-left,
-  .arena.mode-three.winner-right .fighter-left,
-  .arena.mode-three.winner-center .fighter-left {
-    --x: 58px;
-  }
-
-  .arena.mode-three.state-approach .fighter-right,
-  .arena.mode-three.state-struggle .fighter-right,
-  .arena.mode-three.winner-left .fighter-right,
-  .arena.mode-three.winner-center .fighter-right {
-    --x: -58px;
   }
 
   .choice-tag {
