@@ -301,7 +301,7 @@ button:active {
 .arena {
   position: relative;
   overflow: hidden;
-  min-height: 0;
+  min-height: 300px;
   height: 100%;
   border-radius: 22px;
   background:
@@ -878,13 +878,18 @@ button:active {
   }
 
   .app-shell {
+    width: min(100% - 16px, 760px);
     min-height: auto;
     grid-template-rows: auto auto auto;
+    gap: 12px;
+    padding-top: 12px;
+    padding-bottom: 18px;
   }
 
   .hero {
     grid-template-columns: 1fr;
     align-items: start;
+    padding: 16px;
   }
 
   .hero-badges {
@@ -892,8 +897,13 @@ button:active {
   }
 
   .control-panel {
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    padding: 14px;
+  }
+
+  .arena {
+    min-height: 420px;
   }
 
   .mode-row,
@@ -901,19 +911,96 @@ button:active {
   .choices-grid {
     grid-column: 1 / -1;
   }
+
+  .choices-grid.mode-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .choices-grid.mode-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .button-row {
+    justify-content: flex-start;
+  }
+
+  .fighter {
+    width: min(190px, 28vw);
+    bottom: 18px;
+  }
+
+  .fighter-center {
+    width: min(160px, 22vw);
+    bottom: 92px;
+  }
+
+  .fighter-left {
+    left: 16px;
+  }
+
+  .fighter-right {
+    right: 16px;
+  }
+
+  .arena.state-approach .fighter-left,
+  .arena.state-struggle .fighter-left,
+  .arena.winner-right .fighter-left {
+    --x: 126px;
+  }
+
+  .arena.state-approach .fighter-right,
+  .arena.state-struggle .fighter-right,
+  .arena.winner-left .fighter-right {
+    --x: -126px;
+  }
+
+  .arena.mode-three.state-approach .fighter-left,
+  .arena.mode-three.state-struggle .fighter-left,
+  .arena.mode-three.winner-right .fighter-left,
+  .arena.mode-three.winner-center .fighter-left {
+    --x: 92px;
+  }
+
+  .arena.mode-three.state-approach .fighter-right,
+  .arena.mode-three.state-struggle .fighter-right,
+  .arena.mode-three.winner-left .fighter-right,
+  .arena.mode-three.winner-center .fighter-right {
+    --x: -92px;
+  }
 }
 
 @media (max-width: 560px) {
   .app-shell {
     width: min(100% - 16px, 980px);
     padding-top: 10px;
-    padding-bottom: 16px;
+    padding-bottom: 20px;
   }
 
   .hero,
   .control-panel,
   .arena-panel {
     border-radius: 20px;
+  }
+
+  .hero {
+    padding: 14px;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+  }
+
+  h1 {
+    font-size: 1.42rem;
+  }
+
+  .hero-copy {
+    font-size: 0.84rem;
+  }
+
+  .hero-badges span {
+    font-size: 0.74rem;
+    padding: 7px 9px;
   }
 
   .arena-hud {
@@ -923,6 +1010,12 @@ button:active {
 
   .control-panel {
     grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .arena {
+    min-height: 58vh;
+    height: auto;
   }
 
   .choices-grid.mode-two,
@@ -930,52 +1023,90 @@ button:active {
     grid-template-columns: 1fr;
   }
 
+  .mode-row,
+  .button-row {
+    width: 100%;
+  }
+
+  .mode-row {
+    justify-content: space-between;
+  }
+
+  .mode-button,
+  .battle-button,
+  .ghost-button {
+    flex: 1 1 0;
+    text-align: center;
+  }
+
+  .button-row {
+    flex-wrap: wrap;
+  }
+
   .fighter {
-    width: min(164px, 41vw);
-    bottom: 26px;
+    width: min(150px, 39vw);
+    bottom: 20px;
   }
 
   .fighter-center {
-    width: min(142px, 36vw);
-    bottom: 126px;
+    width: min(122px, 31vw);
+    bottom: 130px;
   }
 
   .fighter-left {
-    left: 10px;
+    left: 8px;
   }
 
   .fighter-right {
-    right: 10px;
+    right: 8px;
   }
 
   .arena.state-approach .fighter-left,
   .arena.state-struggle .fighter-left,
   .arena.winner-right .fighter-left {
-    --x: 104px;
+    --x: 84px;
   }
 
   .arena.state-approach .fighter-right,
   .arena.state-struggle .fighter-right,
   .arena.winner-left .fighter-right {
-    --x: -104px;
+    --x: -84px;
   }
 
   .arena.mode-three.state-approach .fighter-left,
   .arena.mode-three.state-struggle .fighter-left,
   .arena.mode-three.winner-right .fighter-left,
   .arena.mode-three.winner-center .fighter-left {
-    --x: 72px;
+    --x: 58px;
   }
 
   .arena.mode-three.state-approach .fighter-right,
   .arena.mode-three.state-struggle .fighter-right,
   .arena.mode-three.winner-left .fighter-right,
   .arena.mode-three.winner-center .fighter-right {
-    --x: -72px;
+    --x: -58px;
   }
 
   .choice-tag {
-    max-width: 132px;
-    font-size: 0.8rem;
+    max-width: 120px;
+    font-size: 0.72rem;
+    padding: 7px 10px;
+  }
+
+  .marmot-card {
+    padding: 6px;
+    border-radius: 16px;
+  }
+
+  .marmot-card img {
+    border-radius: 12px;
+  }
+
+  .result-panel {
+    padding: 10px 12px;
+  }
+
+  .winner-text {
+    font-size: 1rem;
   }
 }
