@@ -944,10 +944,10 @@ button:active {
 
 @media (max-width: 560px) {
   .arena {
-    --shift-two-approach: clamp(90px, 19cqw, 156px);
-    --shift-two-struggle: clamp(102px, 20.5cqw, 168px);
-    --shift-three-approach: clamp(62px, 13.5cqw, 118px);
-    --shift-three-struggle: clamp(72px, 15cqw, 130px);
+    --shift-two-approach: clamp(76px, 16.5cqw, 138px);
+    --shift-two-struggle: clamp(88px, 18cqw, 148px);
+    --shift-three-approach: clamp(50px, 11.2cqw, 98px);
+    --shift-three-struggle: clamp(60px, 12.8cqw, 110px);
   }
 
   .app-shell {
