@@ -152,17 +152,10 @@ h1 {
 
 .battle-count-row {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.control-heading {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.84rem;
-  font-weight: 700;
+  justify-content: start;
+  gap: 8px;
 }
 
 .mode-row {
@@ -175,7 +168,7 @@ h1 {
 }
 
 .mode-button {
-  min-width: 44px;
+  min-width: 84px;
   padding: 9px 13px;
   color: var(--muted);
   background: transparent;
@@ -276,6 +269,10 @@ h1 {
   font-weight: 600;
   font-size: 0.88rem;
   cursor: pointer;
+}
+
+.swap-below {
+  justify-self: start;
 }
 
 .arena-panel {
@@ -1305,7 +1302,7 @@ h1 {
   }
 
   .battle-count-row {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr;
   }
 
   .choices-grid.mode-two {
@@ -1384,10 +1381,6 @@ h1 {
     gap: 8px;
   }
 
-  .control-heading {
-    font-size: 0.76rem;
-  }
-
   .arena {
     min-height: 46dvh;
     height: auto;
@@ -1432,6 +1425,10 @@ h1 {
   .ghost-button {
     flex: 1 1 0;
     text-align: center;
+  }
+
+  .swap-below {
+    justify-self: stretch;
   }
 
   .battle-button {
