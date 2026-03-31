@@ -173,9 +173,11 @@ h1 {
 }
 
 .input-card {
-  display: grid;
-  gap: 6px;
-  font-size: 0.87rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
   min-width: 0;
 }
 
@@ -193,15 +195,19 @@ h1 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.input-card span {
+.input-label {
+  flex: 0 0 auto;
   color: var(--muted);
+  font-weight: 600;
+  min-width: 3.5em;
 }
 
 .input-card input {
-  width: 100%;
-  padding: 11px 13px;
-  border: 2px solid rgba(220, 111, 125, 0.12);
-  border-radius: 14px;
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 1.5px solid rgba(220, 111, 125, 0.1);
+  border-radius: 12px;
   background: var(--field);
   font: inherit;
   color: var(--ink);
@@ -1326,17 +1332,16 @@ button:active {
   }
 
   .hero {
-    padding: 10px 14px;
+    padding: 6px 14px;
   }
 
   .eyebrow {
-    font-size: 0.64rem;
-    padding: 4px 10px;
-    margin-bottom: 4px;
+    display: none;
   }
 
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    margin: 0;
   }
 
   .hero-copy {
@@ -1361,6 +1366,21 @@ button:active {
   .choices-grid.mode-two,
   .choices-grid.mode-three {
     grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .input-card {
+    gap: 8px;
+  }
+
+  .input-label {
+    min-width: 3.2em;
+    font-size: 0.78rem;
+  }
+
+  .input-card input {
+    padding: 7px 10px;
+    font-size: 0.88rem;
   }
 
   .mode-row,

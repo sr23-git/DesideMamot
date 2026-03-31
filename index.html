@@ -29,15 +29,15 @@
         </div>
         <div id="choicesGrid" class="choices-grid mode-two">
           <label class="input-card">
-            <span>左の候補</span>
+            <span class="input-label">候補1</span>
             <input id="choiceA" type="text" maxlength="24" value="ラーメン" />
           </label>
           <label class="input-card">
-            <span>右の候補</span>
+            <span class="input-label">候補2</span>
             <input id="choiceB" type="text" maxlength="24" value="カレー" />
           </label>
           <label id="choiceCWrap" class="input-card choice-c-wrap is-hidden">
-            <span>中央の候補</span>
+            <span class="input-label">候補3</span>
             <input id="choiceC" type="text" maxlength="24" value="オムライス" />
           </label>
         </div>
@@ -48,13 +48,6 @@
       </section>
 
       <section class="arena-panel">
-        <div class="arena-hud">
-          <div class="status-wrap">
-            <p class="status-label">実況</p>
-            <p id="statusText" class="status-text">候補を決めて、対決スタート！</p>
-          </div>
-        </div>
-
         <div id="arena" class="arena state-idle">
           <div class="sky-layer" aria-hidden="true">
             <span class="cloud cloud-one"></span>
@@ -107,11 +100,6 @@
               <img src="Images/Mamo_T-pose.jpg" alt="右のマーモット" />
             </div>
           </article>
-        </div>
-
-        <div class="result-panel">
-          <p class="result-label">勝者</p>
-          <p id="winnerText" class="winner-text">まだ決まっていません</p>
         </div>
       </section>
     </main>

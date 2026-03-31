@@ -35,9 +35,9 @@ function sanitizeChoice(value, fallback) {
 }
 
 function syncLabels() {
-  const left = sanitizeChoice(choiceAInput.value, "左の候補");
-  const right = sanitizeChoice(choiceBInput.value, "右の候補");
-  const center = sanitizeChoice(choiceCInput.value, "中央の候補");
+  const left = sanitizeChoice(choiceAInput.value, "候補1");
+  const right = sanitizeChoice(choiceBInput.value, "候補2");
+  const center = sanitizeChoice(choiceCInput.value, "候補3");
   tagA.textContent = left;
   tagB.textContent = right;
   tagC.textContent = center;
@@ -140,23 +140,25 @@ function setBattleMode(mode) {
   fighterC.classList.toggle("is-hidden", !threePlayer);
   resetArenaClasses();
   syncLabels();
-  winnerText.textContent = "まだ決まっていません";
-  statusText.textContent = threePlayer
-    ? "3匹そろいました。中央の乱入マーモットにも注目です。"
-    : "候補を決めて、対決スタート！";
+  if (winnerText) winnerText.textContent = "まだ決まっていません";
+  if (statusText) {
+    statusText.textContent = threePlayer
+      ? "3匹そろいました。中央の乱入マーモットにも注目です。"
+      : "候補を決めて、対決スタート！";
+  }
   setControlsDisabled(false);
 }
 
 function getChoices() {
   const choices = [
-    { side: "left", value: sanitizeChoice(choiceAInput.value, "左の候補") },
-    { side: "right", value: sanitizeChoice(choiceBInput.value, "右の候補") },
+    { side: "left", value: sanitizeChoice(choiceAInput.value, "候補1") },
+    { side: "right", value: sanitizeChoice(choiceBInput.value, "候補2") },
   ];
 
   if (battleMode === 3) {
     choices.splice(1, 0, {
       side: "center",
-      value: sanitizeChoice(choiceCInput.value, "中央の候補"),
+      value: sanitizeChoice(choiceCInput.value, "候補3"),
     });
   }
 
@@ -179,20 +181,24 @@ async function startBattle() {
   const winnerSide = winner.side;
   const winnerChoice = winner.value;
 
-  winnerText.textContent = "判定中...";
-  statusText.textContent =
-    battleMode === 3
-      ? "3匹がじりじり間合いを詰めています..."
-      : "両者、じりじり間合いを詰めています...";
+  if (winnerText) winnerText.textContent = "判定中...";
+  if (statusText) {
+    statusText.textContent =
+      battleMode === 3
+        ? "3匹がじりじり間合いを詰めています..."
+        : "両者、じりじり間合いを詰めています...";
+  }
   arena.classList.replace("state-idle", "state-approach");
   playBattleStartSound();
 
   await sleep(timing.approach);
 
-  statusText.textContent =
-    battleMode === 3
-      ? "三つ巴の取っ組み合い開始。かなりのもふもふ乱戦です。"
-      : "取っ組み合い開始。もふもふ乱戦です。";
+  if (statusText) {
+    statusText.textContent =
+      battleMode === 3
+        ? "三つ巴の取っ組み合い開始。かなりのもふもふ乱戦です。"
+        : "取っ組み合い開始。もふもふ乱戦です。";
+  }
   arena.classList.replace("state-approach", "state-struggle");
   playScuffleSounds();
 
@@ -210,15 +216,15 @@ async function startBattle() {
     center: `${winnerChoice}マーモットが中央から勝ち名乗りです。`,
   };
 
-  statusText.textContent = finishMessages[winnerSide];
+  if (statusText) statusText.textContent = finishMessages[winnerSide];
   arena.classList.replace("state-struggle", "state-finish");
   arena.classList.add(`winner-${winnerSide}`);
   playVictorySound();
 
   await sleep(timing.finish);
 
-  winnerText.textContent = `今日は「${winnerChoice}」で決まり！`;
-  statusText.textContent = `勝者は ${winnerChoice}。本日の決定です。`;
+  if (winnerText) winnerText.textContent = `今日は「${winnerChoice}」で決まり！`;
+  if (statusText) statusText.textContent = `勝者は ${winnerChoice}。本日の決定です。`;
   arena.classList.add("decision-final");
   skyWinnerText.textContent = winnerChoice;
   skyWinnerText.classList.remove("is-visible");
