@@ -144,10 +144,25 @@ h1 {
 
 .control-panel {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
+  grid-template-columns: 1fr;
+  align-items: stretch;
   gap: 10px;
   padding: 12px 14px;
+}
+
+.battle-count-row {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.control-heading {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 700;
 }
 
 .mode-row {
@@ -160,10 +175,12 @@ h1 {
 }
 
 .mode-button {
+  min-width: 44px;
   padding: 9px 13px;
   color: var(--muted);
   background: transparent;
   box-shadow: none;
+  font-weight: 700;
 }
 
 .mode-button.is-active {
@@ -231,7 +248,7 @@ h1 {
 }
 
 .battle-button {
-  flex: 1;
+  width: 100%;
   padding: 16px 24px;
   border: none;
   border-radius: 20px;
@@ -313,7 +330,7 @@ h1 {
   --shift-three-side-win: clamp(80px, 12cqw, 116px);
   position: relative;
   overflow: hidden;
-  min-height: 240px;
+  min-height: 320px;
   height: 100%;
   border-radius: 22px;
   container-type: inline-size;
@@ -659,7 +676,7 @@ h1 {
 
 .fighter-center {
   left: 50%;
-  bottom: clamp(64px, 15cqh, 92px);
+  bottom: clamp(24px, 6cqh, 40px);
   width: clamp(122px, 20cqw, 164px);
   transform: translateX(-50%) translateX(var(--x)) rotate(var(--rot));
 }
@@ -1278,13 +1295,17 @@ h1 {
   }
 
   .arena {
-    min-height: 420px;
+    min-height: 470px;
   }
 
-  .mode-row,
+  .battle-count-row,
   .button-row,
   .choices-grid {
     grid-column: 1 / -1;
+  }
+
+  .battle-count-row {
+    grid-template-columns: auto 1fr auto;
   }
 
   .choices-grid.mode-two {
@@ -1357,8 +1378,18 @@ h1 {
     padding: 12px;
   }
 
+  .battle-count-row {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    gap: 8px;
+  }
+
+  .control-heading {
+    font-size: 0.76rem;
+  }
+
   .arena {
-    min-height: 32dvh;
+    min-height: 46dvh;
     height: auto;
   }
 
@@ -1392,6 +1423,17 @@ h1 {
     gap: 10px;
   }
 
+  .mode-row {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .mode-button,
+  .ghost-button {
+    flex: 1 1 0;
+    text-align: center;
+  }
+
   .battle-button {
     padding: 13px;
     font-size: 1rem;
@@ -1410,7 +1452,7 @@ h1 {
   }
 
   .fighter-center {
-    bottom: 130px;
+    bottom: 72px;
   }
 
   .fighter-left {

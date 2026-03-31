@@ -19,13 +19,17 @@
       </section>
 
       <section class="control-panel">
-        <div class="mode-row" role="radiogroup" aria-label="対戦人数">
-          <button id="modeTwoButton" class="mode-button is-active" type="button">
-            2人戦
-          </button>
-          <button id="modeThreeButton" class="mode-button" type="button">
-            3人戦
-          </button>
+        <div class="battle-count-row">
+          <p class="control-heading">たたかう数</p>
+          <div class="mode-row" role="radiogroup" aria-label="対戦人数">
+            <button id="modeTwoButton" class="mode-button is-active" type="button">
+              2
+            </button>
+            <button id="modeThreeButton" class="mode-button" type="button">
+              3
+            </button>
+          </div>
+          <button id="swapButton" class="ghost-button" type="button">入れ替え</button>
         </div>
         <div id="choicesGrid" class="choices-grid mode-two">
           <label class="input-card">
@@ -101,8 +105,7 @@
 
       <section class="action-panel">
         <div class="button-row">
-          <button id="battleButton" class="battle-button">対決スタート</button>
-          <button id="swapButton" class="ghost-button" type="button">入れ替え</button>
+          <button id="battleButton" class="battle-button">対決！</button>
         </div>
       </section>
     </main>
