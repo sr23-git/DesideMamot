@@ -1314,8 +1314,9 @@ button:active {
 
   .app-shell {
     width: min(100% - 16px, 980px);
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    gap: 8px;
   }
 
   .hero,
@@ -1325,24 +1326,21 @@ button:active {
   }
 
   .hero {
-    padding: 14px;
+    padding: 10px 14px;
   }
 
   .eyebrow {
-    font-size: 0.68rem;
+    font-size: 0.64rem;
+    padding: 4px 10px;
+    margin-bottom: 4px;
   }
 
   h1 {
-    font-size: 1.42rem;
+    font-size: 1.2rem;
   }
 
   .hero-copy {
-    font-size: 0.84rem;
-  }
-
-  .hero-badges span {
-    font-size: 0.74rem;
-    padding: 7px 9px;
+    display: none;
   }
 
   .arena-hud {
@@ -1356,7 +1354,7 @@ button:active {
   }
 
   .arena {
-    min-height: 58vh;
+    min-height: 48vh;
     height: auto;
   }
 
@@ -1379,6 +1377,8 @@ button:active {
   .ghost-button {
     flex: 1 1 0;
     text-align: center;
+    padding: 10px 12px;
+    font-size: 0.9rem;
   }
 
   .button-row {
