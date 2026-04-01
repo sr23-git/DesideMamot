@@ -340,7 +340,7 @@ h1 {
 }
 
 .arena.mode-two {
-  min-height: 340px;
+  min-height: 356px;
 }
 
 .sky-layer {
@@ -1300,7 +1300,7 @@ h1 {
   }
 
   .arena.mode-two {
-    min-height: 500px;
+    min-height: 520px;
   }
 
   .battle-count-row,
@@ -1395,7 +1395,7 @@ h1 {
   }
 
   .arena.mode-two {
-    min-height: 50dvh;
+    min-height: 52dvh;
   }
 
   .choices-grid.mode-two,
@@ -1603,7 +1603,7 @@ h1 {
   }
 
   .arena.mode-two {
-    min-height: 36dvh;
+    min-height: 38dvh;
   }
 
   .fighter {
