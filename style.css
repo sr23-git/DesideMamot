@@ -339,6 +339,10 @@ h1 {
     inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
+.arena.mode-two {
+  min-height: 280px;
+}
+
 .sky-layer {
   position: absolute;
   inset: 0 0 auto 0;
@@ -669,6 +673,11 @@ h1 {
 
 .fighter-right {
   right: 24px;
+}
+
+.arena.mode-two .fighter-left,
+.arena.mode-two .fighter-right {
+  bottom: 24px;
 }
 
 .fighter-center {
@@ -1295,6 +1304,10 @@ h1 {
     min-height: 470px;
   }
 
+  .arena.mode-two {
+    min-height: 390px;
+  }
+
   .battle-count-row,
   .button-row,
   .choices-grid {
@@ -1386,6 +1399,10 @@ h1 {
     height: auto;
   }
 
+  .arena.mode-two {
+    min-height: 40dvh;
+  }
+
   .choices-grid.mode-two,
   .choices-grid.mode-three {
     grid-template-columns: 1fr;
@@ -1458,6 +1475,11 @@ h1 {
 
   .fighter-right {
     right: 8px;
+  }
+
+  .arena.mode-two .fighter-left,
+  .arena.mode-two .fighter-right {
+    bottom: 28px;
   }
 
   .choice-tag {
@@ -1590,6 +1612,10 @@ h1 {
     min-height: 34dvh;
   }
 
+  .arena.mode-two {
+    min-height: 30dvh;
+  }
+
   .fighter {
     bottom: 16px;
     width: clamp(104px, 25cqw, 128px);
@@ -1598,6 +1624,11 @@ h1 {
   .fighter-center {
     bottom: 54px;
     width: clamp(94px, 20cqw, 112px);
+  }
+
+  .arena.mode-two .fighter-left,
+  .arena.mode-two .fighter-right {
+    bottom: 22px;
   }
 
   .choice-tag {
