@@ -1509,3 +1509,139 @@ h1 {
     font-size: 1rem;
   }
 }
+
+@media (max-width: 380px) and (max-height: 700px) {
+  body {
+    overflow: hidden;
+  }
+
+  .app-shell {
+    min-height: 100dvh;
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    gap: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .hero {
+    padding: 6px 12px;
+  }
+
+  h1 {
+    font-size: 1.02rem;
+    line-height: 1.05;
+  }
+
+  .control-panel {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .battle-count-row {
+    gap: 6px;
+  }
+
+  .mode-row {
+    padding: 4px;
+    gap: 6px;
+  }
+
+  .mode-button {
+    min-width: 0;
+    padding: 7px 10px;
+    font-size: 0.78rem;
+  }
+
+  .choices-grid.mode-two,
+  .choices-grid.mode-three {
+    gap: 4px;
+  }
+
+  .input-card {
+    gap: 6px;
+  }
+
+  .input-label {
+    min-width: 3em;
+    font-size: 0.72rem;
+  }
+
+  .input-card input {
+    padding: 6px 9px;
+    font-size: 0.82rem;
+    border-radius: 10px;
+  }
+
+  .swap-below {
+    padding: 8px 10px;
+    font-size: 0.76rem;
+    border-radius: 10px;
+  }
+
+  .arena-panel {
+    padding: 8px;
+  }
+
+  .arena {
+    --shift-two-approach: clamp(50px, 11.5cqw, 86px);
+    --shift-two-struggle: clamp(58px, 12.5cqw, 94px);
+    --shift-three-approach: clamp(32px, 7cqw, 58px);
+    --shift-three-struggle: clamp(38px, 8.5cqw, 66px);
+    min-height: 34dvh;
+  }
+
+  .fighter {
+    bottom: 16px;
+    width: clamp(104px, 25cqw, 128px);
+  }
+
+  .fighter-center {
+    bottom: 54px;
+    width: clamp(94px, 20cqw, 112px);
+  }
+
+  .choice-tag {
+    max-width: 96px;
+    font-size: 0.64rem;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+  }
+
+  .marmot-card {
+    padding: 5px;
+    border-radius: 14px;
+  }
+
+  .marmot-card img {
+    border-radius: 10px;
+  }
+
+  .sky-winner-text {
+    top: 8%;
+    font-size: clamp(1.3rem, 8.6vw, 2rem);
+  }
+
+  .winner-burst {
+    width: min(78cqw, 250px);
+    top: 9%;
+  }
+
+  .confetti {
+    width: 10px;
+    height: 20px;
+  }
+
+  .action-panel {
+    padding: 0 10px 10px;
+  }
+
+  .button-row {
+    gap: 6px;
+  }
+
+  .battle-button {
+    padding: 10px 12px;
+    font-size: 0.92rem;
+    border-radius: 14px;
+  }
+}
